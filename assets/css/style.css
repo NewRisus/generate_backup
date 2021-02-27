@@ -1,0 +1,84 @@
+body {
+	background-color: var(--bs-dark);
+	color: var(--bs-dark);
+}
+#boton {
+	position: absolute;
+	top: 18px;
+	right: 18px;
+	font-size: 1.8em;
+	border-radius: 10em;
+	width: 38px;
+	height: 38px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#boton:hover {
+	background-color: #FFF2;
+}
+.nrlogo {
+	width: 40%;
+	margin: 20px 0;
+}
+.box-backup > i {
+	font-size: 3rem;
+}
+.box-backup#crear:hover {
+	background-color: var(--bs-primary);
+}
+.box-backup#restaurar:hover {
+	background-color: var(--bs-success);
+}
+.box-backup#eliminar:hover {
+	background-color: var(--bs-danger);
+}
+*:-webkit-autofill,
+*:-webkit-autofill:hover, 
+*:-webkit-autofill:focus  {
+	-webkit-text-fill-color: var(--bs-light);
+	transition: background-color 5000s ease-in-out 0s;
+	background-color: #213746;
+}
+.form-control,
+.form-select {
+	border: none;
+	background-color: #0004;
+	color: var(--bs-white);
+}
+.form-control::placeholder,
+.form-select::placeholder {
+	color: #444;
+}
+.form-control:focus,
+.form-select:focus {
+	border-color: transparent;
+	background:#0e1f2988;
+	color: var(--bs-white);
+}
+.form-control:disabled,
+.form-select:disabled {
+	border-color: transparent;
+	background:#56565666;
+	color:var(--bs-dark);
+	cursor: no-drop;
+}
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: var(--bs-dark);
+		color: var(--bs-white);
+	}
+	body.light-theme {
+      background-color: var(--bs-white);
+      color: var(--bs-dark);
+	}
+	body.light-theme .text-white {
+		color: var(--bs-dark)!important;
+	}
+	body.light-theme #boton {
+      color: var(--bs-dark);
+   }
+	body.light-theme #boton:hover {
+      background-color: #0003;
+   }
+}
