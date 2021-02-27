@@ -30,7 +30,7 @@ var generator = {
       // Lo enviamos usando el método POST
       $.post({
          url: global.url + '/app.php?act=create', 
-         data: dataString, 
+         data: dataString,
          beforeSend: function() {
             $(".generated").html('<span id="spin" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Creando backup...');
          }
@@ -49,10 +49,20 @@ var generator = {
       });
    },
    restaurar: function(id, file, ext) {
-      $.post(global.url + '/app.php?act=restore', {id, file, ext}, function(e) {
+      $.post({
+         url: global.url + '/app.php?act=restore', 
+         data: {id, file, ext},
+         beforeSend: function() {
+            $(".id_"+id).html('<span id="spin" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Restaurando base...');
+            $("#alerta").html('<small class="d-block text-center py-2 text-danger">Este proceso puede tardar, así que debes ser paciente hasta que termine.</small>');
+         }
+      }).done(function(e) {
          klass = (e.charAt(0) == '1') ? 'success' : 'error';
          Swal.fire({icon:klass,html:e.substring(3)});
-      });
+      }).always(function(){
+         $(".id_"+id).html('Restaurar');
+         $("#alerta").html('');
+      });;
    },
    eliminar: function(id, file, ext) {
       $.post(global.url + '/app.php?act=delete', {id, file, ext}, function(e) {

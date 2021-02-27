@@ -5,7 +5,7 @@
  * @package New_Risus_Tools
  * @author Miguel92 
  * @copyright NewRisus 2021
- * @version v1.0.32 22-02-2021
+ * @version v1.0.33 22-02-2021
  * @link https://newrisus.com
 */
 
@@ -17,6 +17,7 @@ $total = count($sql);
 
 if($sql):
 ?>
+<div id="alerta"></div>
 <table class="table table-dark table-striped table-hover table-borderless">
   <caption id="total">Backup creado: <b><?php echo $total; ?></b></caption>
   	<thead>
@@ -37,7 +38,7 @@ if($sql):
       	<td class="text-uppercase"><?php echo $sql[$key]['size']; ?></td>
       	<td>
       		<div class="d-flex justify-content-around align-items-center">
-					<a href="javascript:generator.restaurar(<?php echo $sql[$key]['id']; ?>, '<?php echo $sql[$key]['file']; ?>', '<?php echo $sql[$key]['type']; ?>')" class="text-primary">Restaurar</a>
+					<a href="javascript:generator.restaurar(<?php echo $sql[$key]['id']; ?>, '<?php echo $sql[$key]['file']; ?>', '<?php echo $sql[$key]['type']; ?>')" class="id_<?php echo $sql[$key]['id']; ?> text-primary">Restaurar</a>
 				</div>
       	</td>
     	</tr>

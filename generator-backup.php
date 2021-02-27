@@ -60,8 +60,8 @@ class BackUpDB {
    	
    	# Creamos dato para el archivo backup
    	$fecha = time();
-   	$file = (empty($newname)) ? "{$base}" : "{$newname}" . "-{$fecha}.sql";
-   	$SQL = FOLDER . DIRECTORY_SEPARATOR . "{$file}";
+   	$file = (empty($newname)) ? "{$base}" : "{$newname}" . "-{$fecha}";
+   	$SQL = FOLDER . DIRECTORY_SEPARATOR . "{$file}.sql";
    	# Comando para ser ejecutado
    	$d = $this->msqldump($host, $user, $pass, $base, 'backup', $SQL);
    	# Usamos system, por que exec no lo hace!
@@ -100,10 +100,9 @@ class BackUpDB {
    	return $datos;
    }
    # Función para restaurar la base de datos
-   public function RestoreBackup() {
+   public function RestoreBackup($db) {
       $file = "{$_POST['file']}-{$_POST['id']}.{$_POST['ext']}";
       $database = FOLDER . DIRECTORY_SEPARATOR . "{$file}";
-      include dirname(ROOT) . "/config.inc.php";
       # Datos de database
       $base = $this->secure($db['database']);
       $user = $this->secure($db['username']);
@@ -113,6 +112,7 @@ class BackUpDB {
       $d = $this->msqldump($host, $user, $pass, $base, 'restore', $database);
       # Usamos system, por que exec no lo hace!
       system($d, $salida);
+    
       if($salida == 0) return "1: Los datos del archivo <b>{$file}</b> se han importado correctamente a la base de datos.";
       else return "0: Se ha producido un error durante la importación. Por favor, compruebe si el archivo está en la misma carpeta que este script. Compruebe también los siguientes datos de nuevo: <br/><br/><table><tr><td>Nombre de la base de datos:</td><td><b>{$base}</b></td></tr><tr><td>Nombre de usuario MySQL:</td><td><b>{$user}</b></td></tr><tr><td>Contraseña MySQL:</td><td><b>NOTSHOWN</b></td></tr><tr><td>Nombre de host MySQL:</td><td><b>{$host}</b></td></tr></table>";
    }

@@ -6,7 +6,7 @@
  * @package New_Risus_Tools
  * @author Miguel92 
  * @copyright NewRisus 2021
- * @version v1.0.32 22-02-2021
+ * @version v1.0.33 22-02-2021
  * @link https://newrisus.com
 */
 
@@ -14,9 +14,12 @@
 date_default_timezone_set('America/Argentina/Buenos_Aires');
 setlocale(LC_TIME, 'spanish');
 
+# Máximo de tiempo 5 Min.
+set_time_limit(300);
+
 # Creamos una ruta "url"
 $url_base = "{$_SERVER["REQUEST_SCHEME"]}://{$_SERVER["HTTP_HOST"]}" . dirname($_SERVER["PHP_SELF"]);
-$version = "v1.0.26";
+$version = "v1.0.33";
 # Definimos la ruta de "CrearBackup"
 define('ROOT', __DIR__ . DIRECTORY_SEPARATOR);
 
@@ -59,7 +62,7 @@ switch ($action) {
 	break;
 	# Restaura backup
 	case 'restore':
-		echo $tsDBackup->RestoreBackup();
+		echo $tsDBackup->RestoreBackup($db);
 	break;
 	# Elimina backup
 	case 'delete':
