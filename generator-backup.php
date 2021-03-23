@@ -8,10 +8,10 @@
  * @package    NewRisus2
  * @author     newrisus.com <joel92 [at] live.com>
  * @copyright  2021 Team New Risus
- * @version    v1.2
+ * @version    v1.3
  * @link       https://newrisus.com
- * @since      generator-backup.php 1.2
- * @date       22-02-2021
+ * @since      generator-backup.php 1.3
+ * @date       23-03-2021
  * @purpose:   Crear copia de seguridad de la base de datos y usar las copias
  *
 */
@@ -37,15 +37,15 @@ class BackUpDB {
          # Si es de este año no mostramos el "año", pero si es del año pasado si mostramos el "año"
          $y = (strftime('%Y', $date) === date('Y')) ? '' : strftime(', %Y', $date);
          # Concatenamos el año
-         $dc = ($short) ? "%m, %b %y" : "%d.%m.%Y %T %p";
+         $dc = ($short) ? "%d, %b %y" : "%d.%m.%Y %T %p";
          $date = ucfirst(strftime(($year) ? $dc : "%B %d" . $y, $date));
       }
       return $date;
    }
    # Función para ejecutar el comando
-   public function msqldump($host, $user, $pass, $base, $action, $file) {
+   public function mysqldump($host, $user, $pass, $base, $action, $file) {
       $act = ($action == 'backup') ? '>' : '<';
-      $dump = ($action == 'backup') ? 'mysqldump --opt' : 'mysql';
+      $dump = ($action == 'backup') ? 'mysqldump --opt --compact' : 'mysql';
       return "{$dump} --host={$host} --user={$user} --password={$pass} {$base} {$act} {$file}";
    }
 
@@ -63,11 +63,11 @@ class BackUpDB {
    	$file = (empty($newname)) ? "{$base}" : "{$newname}" . "-{$fecha}";
    	$SQL = FOLDER . DIRECTORY_SEPARATOR . "{$file}.sql";
    	# Comando para ser ejecutado
-   	$d = $this->msqldump($host, $user, $pass, $base, 'backup', $SQL);
+   	$d = $this->mysqldump($host, $user, $pass, $base, 'backup', $SQL);
    	# Usamos system, por que exec no lo hace!
    	system($d, $salida);
    	# Mostramos el mensaje dependiendo de la salida que tenga
-   	if($salida == 0) return "1: La base de datos <b>{$base}</b> se ha almacenado correctamente en <b>{$SQL}</b>";
+   	if($salida == 0) return "1: La base de datos <b>{$base}</b> se ha creado correctamente <b>{$file}.sql</b>";
 		elseif($salida == 1) return "0: Se ha producido un error al exportar <b>{$base}</b> a {$file}";
 		elseif($salida == 2) return "0: Se ha producido un error de exportación, compruebe la siguiente información: <br/><br/><table><tr><td>Nombre de la base de datos:</td><td><b>{$base}</b></td></tr><tr><td>Nombre de usuario MySQL:</td><td><b>{$user}</b></td></tr><tr><td>Contraseña MySQL:</td><td><b>NOTSHOWN</b></td></tr><tr><td>Nombre de host MySQL:</td><td><b>{$host}</b></td></tr></table>";
    }
@@ -109,7 +109,7 @@ class BackUpDB {
       $pass = $this->secure($db['password']);
       $host = $this->secure($db['hostname']);
       # Comando para ser ejecutado
-      $d = $this->msqldump($host, $user, $pass, $base, 'restore', $database);
+      $d = $this->mysqldump($host, $user, $pass, $base, 'restore', $database);
       # Usamos system, por que exec no lo hace!
       system($d, $salida);
     

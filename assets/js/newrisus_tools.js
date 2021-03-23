@@ -1,6 +1,6 @@
 $('.bdc').on('click', function(e) {
 	tipo = $(this).children().attr('id');
-	location.href = global.url + '?accion=' + tipo;
+	location.href = global.url + '/index.php?accion=' + tipo;
 });
 
 $("input[name=newname]").on('keyup', function() {
@@ -42,7 +42,7 @@ var generator = {
   				showCancelButton: true,
 				confirmButtonText: `Finalizar`,
 			}).then((result) => {
-				if (result.isConfirmed) location.href = global.url;
+				if (result.isConfirmed) location.href = global.url + '/index.php';
 			});
       }).always(function(){
          $(".generated").html('Guardar');

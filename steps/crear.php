@@ -5,7 +5,7 @@
  * @package New_Risus_Tools
  * @author Miguel92 
  * @copyright NewRisus 2021
- * @version v1.0.33 22-02-2021
+ * @version v1.1.0 23-02-2021
  * @link https://newrisus.com
 */
 ?>
@@ -59,6 +59,6 @@
    </div>
 </div>
 <hr>
-<a href="<?php echo $url_base; ?>" class="btn btn-success">Regresar</a>
-<a href="<?php echo $url_base; ?>?accion=eliminar" class="btn btn-danger">Eliminar copias</a>
-<a href="<?php echo $url_base; ?>?accion=restaurar" class="btn btn-primary">Restaurar copias</a>
+<a href="<?php echo $url_base; ?>/index.php" class="btn btn-success">Regresar</a>
+<a href="<?php echo $url_base; ?>/index.php?accion=eliminar" class="btn btn-danger">Eliminar copias</a>
+<a href="<?php echo $url_base; ?>/index.php?accion=restaurar" class="btn btn-primary">Restaurar copias</a>

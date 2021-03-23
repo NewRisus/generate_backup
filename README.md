@@ -4,6 +4,9 @@
 
 > Herramienta para generar copias de seguridad de la base de datos de tu sitio web, y pueden restaurar o eliminar la copia de seguridad creada!
 
+Una vez que la descargues puedes renombrar la carpeta, por el nombre que desees y para ejecutarla es bastante simple,
+en la url "`https://tu-sitio-web.com/(Nombre_de_carpeta)/index.php`"
+
 Crear:
 En esta sección si encuentra tu archivo **config.inc.php** en la raíz de tu sitio, no tendrás que completar nada...
 Pero en caso que no encuentre ningún archivo tendrás que completa el formulario manualmente con los datos de conexión

@@ -5,7 +5,7 @@
  * @package New_Risus_Tools
  * @author Miguel92 
  * @copyright NewRisus 2021
- * @version v1.0.33 22-02-2021
+ * @version v1.1.0 23-02-2021
  * @link https://newrisus.com
 */
 
@@ -47,13 +47,13 @@ if($sql):
 </table>
 <hr>
 <div class="mt-2 mb-4">
-  <a href="<?php echo $url_base; ?>" class="btn btn-success">Regresar</a>
-  <a href="<?php echo $url_base; ?>?accion=eliminar" class="btn btn-danger">Eliminar copias</a>
-  <a href="<?php echo $url_base; ?>?accion=crear" class="btn btn-warning">Crear una copia</a>
+  <a href="<?php echo $url_base; ?>/index.php" class="btn btn-success">Regresar</a>
+  <a href="<?php echo $url_base; ?>/index.php?accion=eliminar" class="btn btn-danger">Eliminar copias</a>
+  <a href="<?php echo $url_base; ?>/index.php?accion=crear" class="btn btn-warning">Crear una copia</a>
 </div>
 <?php else: ?>
    <div class="alert alert-primary">
       <h5>No hay backup:</h5>
-      <p>No existe ningún backup para restaurar tu sitio, en el caso que sea la primera vez, por favor debes crear uno <a href="<?php echo $url_base; ?>?accion=crear">Crear backup</a></p>
+      <p>No existe ningún backup para restaurar tu sitio, en el caso que sea la primera vez, por favor debes crear uno <a href="<?php echo $url_base; ?>/index.php?accion=crear">Crear backup</a></p>
    </div>
 <?php endif; ?>

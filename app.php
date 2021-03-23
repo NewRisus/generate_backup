@@ -6,7 +6,7 @@
  * @package New_Risus_Tools
  * @author Miguel92 
  * @copyright NewRisus 2021
- * @version v1.0.33 22-02-2021
+ * @version v1.1.0 23-02-2021
  * @link https://newrisus.com
 */
 
@@ -19,7 +19,7 @@ set_time_limit(300);
 
 # Creamos una ruta "url"
 $url_base = "{$_SERVER["REQUEST_SCHEME"]}://{$_SERVER["HTTP_HOST"]}" . dirname($_SERVER["PHP_SELF"]);
-$version = "v1.0.33";
+$version = "v1.1.0";
 # Definimos la ruta de "CrearBackup"
 define('ROOT', __DIR__ . DIRECTORY_SEPARATOR);
 
@@ -36,7 +36,11 @@ define('NR__ACCESS', TRUE);
 define('TS_URL', $url_base);
 
 # Crearemos la carpeta en caso que no exista
-if(!is_dir(FOLDER)) mkdir(FOLDER, 0777, true);
+if(!is_dir(FOLDER)) {
+	mkdir(FOLDER, 0777, true);
+} else {
+	chmod(FOLDER, 0777);
+}
 
 # Incluimos el archivo para el control de los backup
 include __DIR__ . "/generator-backup.php";
@@ -62,6 +66,11 @@ switch ($action) {
 	break;
 	# Restaura backup
 	case 'restore':
+		if(file_exists(dirname(__DIR__) . "/config.inc.php")) {
+			include dirname(__DIR__) . "/config.inc.php";
+		} else {
+			include dirname(__DIR__) . "/lib/config.inc.php";
+		}
 		echo $tsDBackup->RestoreBackup($db);
 	break;
 	# Elimina backup
