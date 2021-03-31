@@ -1,6 +1,6 @@
 # Herramienta para copias de seguridad
 
-![GitHub](https://img.shields.io/github/license/NewRisus/GenerateBackup?label=Licencia)
+![GitHub](https://img.shields.io/github/license/NewRisus/GenerarBackup?label=Licencia)
 
 > Herramienta para generar copias de seguridad de la base de datos de tu sitio web, y pueden restaurar o eliminar la copia de seguridad creada!
 
