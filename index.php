@@ -6,11 +6,12 @@
  * @package New_Risus_Tools
  * @author Miguel92 
  * @copyright NewRisus 2021
- * @version v1.1.0 23-02-2021
+ * @version v1.2.2 31-03-2021
  * @link https://newrisus.com
 */
 
 require_once 'app.php';
+if(empty($_GET['download'])):
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
@@ -37,12 +38,47 @@ var global = {
 	</div>
 	<div class="container">
 		<i id="boton" class="bi bi-palette"></i>
-		<?php include ROOT . "steps/{$pagina}.php"; ?>
+		<?php if(empty($GLOBALS['SCRIPT'])): ?>
+			<div class="d-flex justify-content-center align-items-center">
+				<div class="w-75 mx-auto mt-5">
+					<p>Selecciona el script que estas utilizando:</p>
+					<div class="row rows-3">
+						<div class="col">
+							<a href="<?php echo $url_base; ?>/phpost" class="text-decoration-none text-white box rounded shadow d-flex justify-content-center align-items-center flex-column py-5">
+								<i class="bi bi-hdd-rack"></i>
+								<span class="text-white text-uppercase">PHPost Risus</span>
+							</a>
+						</div>
+						<div class="col">
+							<a href="<?php echo $url_base; ?>/newrisus" class="text-decoration-none text-white box rounded shadow d-flex justify-content-center align-items-center flex-column py-5">
+								<i class="bi bi-hdd-rack"></i>
+								<span class="text-white text-uppercase">New Risus v1.x</span>
+							</a>
+						</div>
+						<div class="col">
+							<a href="<?php echo $url_base; ?>/newrisus2" class="text-decoration-none text-white box rounded shadow d-flex justify-content-center align-items-center flex-column py-5">
+								<i class="bi bi-hdd-rack"></i>
+								<span class="text-white text-uppercase">New Risus v2.x</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php else: ?>
+			<?php include ROOT . "script/acciones.php"; ?>
+		<?php endif; ?>
 	</div>
 	<footer class="text-center py-4">
-      <p class="m-0 p-0 ">Copyright <?php echo date("Y"); ?> &copy; <a href="https://newrisus.com" target="_blank">New Risus</a> <small class="d-block text-muted">Versión <?php echo $version; ?></small></p> 
+      <p class="m-0 p-0 ">Copyright <?php echo date("Y"); ?> &copy; <a href="https://newrisus.com" class="text-decoration-none fw-bold" target="_blank">New Risus</a> <small class="d-block text-muted small">Versión <?php echo $version; ?> - <a href="<?php echo $url_base . '/changelog.txt?' . $fecha; ?>" class="text-decoration-none text-primary fst-italic" target="_blank">Historial de cambios</a></small></p> 
    </footer>
 	<script src="<?php echo $url_base . '/assets/js/sweetalert.min.js?' . time(); ?>"></script>
 	<script src="<?php echo $url_base . '/assets/js/newrisus_tools.js?' . time(); ?>"></script>
 </body>
 </html>
+<?php 
+
+else:
+	include __DIR__ . "/download.php";
+endif;
+
+?>

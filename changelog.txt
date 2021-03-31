@@ -1,0 +1,30 @@
+# Versión 1.2.2
+ * Nueva forma de restaurar la base de datos con los archivos ".sql"
+
+- Bug:
+ * No restaura con los archivos .sql.gz
+ * No funciona en todos los hosting (debo averiguar más)
+
+# Versión 1.2.1
+* Puedes descargar la copia de seguridad que desees
+* Puedes subir una copia y restaurar
+
+# Versión 1.2.0 (Reinicie desde cero)
+* Seleccionar tipo de script instalador
+* Seleccionar tipo de archivo a generar (sql | sql.gz)
+* Seleccionar que tablas se quieren guardar
+* Asignar un nombre a la copia (si desea)
+* Comprobación de datos reales
+* Mejoras al crear la copia de seguridad
+* Archivo de acciones (Crear, Restaurar o Borrar)
+* Incluye botón para descargar el archivo de la copia
+
+# Versión 1.1.0
+* Urls al seleccionar una opción
+* Js redirecciones
+* Permisos para almacenar la copia de seguridad
+
+# Versión 1.0.33:
+* Se añadió set_time_limit(300) en app.php
+* Se agregó un loader al restaurar una copia de la base de datos. 
+* Se modificó la función de crear backup, ya que generaba un error.
