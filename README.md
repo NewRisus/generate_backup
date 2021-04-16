@@ -5,7 +5,7 @@
 > Herramienta para generar copias de seguridad de la base de datos de tu sitio web, y pueden restaurar o eliminar la copia de seguridad creada!
 
 Una vez que la descargues puedes renombrar la carpeta, por el nombre que desees y para ejecutarla es bastante simple,
-en la url "`https://tu-sitio-web.com/(Nombre_de_carpeta)/`"
+en la url "`https://tu-sitio-web.com/(Nombre_de_carpeta)/index.php`"
 
 La herramienta esta completamente actualizada:
  * Puedes descargar la copia de seguridad que desees

@@ -6,7 +6,7 @@
  * @package New_Risus_Tools
  * @author Miguel92 
  * @copyright NewRisus 2021
- * @version v1.2.2 31-03-2021
+ * @version v1.2.3 16-05-2021
  * @link https://newrisus.com
 */
 
@@ -18,7 +18,7 @@ if($accion == 'crear'): ?>
 <div class="row">
    <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-10 col-sm-12 col-12 offset-xxl-2 offset-xl-2 offset-lg-2 offset-md-1 offset-sm-0">
 
-   	<form method="POST" action="<?php echo "{$url_base}/{$pagina}"; ?>/seleccionar-tablas" autocomplete="OFF" id="cuenta-backup">
+   	<form method="POST" action="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>&accion=seleccionar-tablas" autocomplete="OFF" id="cuenta-backup">
 			<p><?php echo $msg_imp; ?></p>
 			<div class="row rows-col-2">
 				<div class="col">
@@ -76,9 +76,9 @@ if($accion == 'crear'): ?>
    </div>
 </div>
 <hr>
-<a href="<?php echo "{$url_base}/{$pagina}"; ?>" class="btn btn-success">Regresar</a>
-<a href="<?php echo "{$url_base}/{$pagina}"; ?>/eliminar" class="btn btn-danger">Eliminar copias</a>
-<a href="<?php echo "{$url_base}/{$pagina}"; ?>/restaurar" class="btn btn-primary">Restaurar copias</a>
+<a href="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>" class="btn btn-success">Regresar</a>
+<a href="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>&accion=eliminar" class="btn btn-danger">Eliminar copias</a>
+<a href="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>&accion=restaurar" class="btn btn-primary">Restaurar copias</a>
 <?php 
 else: 
 	if(!empty($accion))

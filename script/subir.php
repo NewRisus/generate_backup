@@ -6,7 +6,7 @@
  * @package New_Risus_Tools
  * @author Miguel92 
  * @copyright NewRisus 2021
- * @version v1.2.2 31-03-2021
+ * @version v1.2.3 16-05-2021
  * @link https://newrisus.com
 */
 

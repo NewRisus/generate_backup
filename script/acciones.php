@@ -6,7 +6,7 @@
  * @package New_Risus_Tools
  * @author Miguel92 
  * @copyright NewRisus 2021
- * @version v1.2.2 31-03-2021
+ * @version v1.2.3 16-05-2021
  * @link https://newrisus.com
 */
 
@@ -28,19 +28,19 @@ if(is_file($location . $file)):
 	<div class="mt-4">
 		<div class="row rows-3">
 			<div class="col">
-				<a href="<?php echo "{$url_base}/{$pagina}"; ?>/crear" class="box crear text-white d-block text-decoration-none rounded shadow d-flex justify-content-center align-items-center flex-column py-5">
+				<a href="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>&accion=crear" class="box crear text-white d-block text-decoration-none rounded shadow d-flex justify-content-center align-items-center flex-column py-5">
 					<i class="bi bi-hdd-rack"></i>
 					<span class="text-white text-uppercase mt-3">Crear backup</span>
 				</a>
 			</div>
 			<div class="col">
-				<a href="<?php echo "{$url_base}/{$pagina}"; ?>/restaurar" class="box restaurar text-white d-block text-decoration-none rounded shadow d-flex justify-content-center align-items-center flex-column py-5">
+				<a href="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>&accion=restaurar" class="box restaurar text-white d-block text-decoration-none rounded shadow d-flex justify-content-center align-items-center flex-column py-5">
 					<i class="bi bi-folder-symlink"></i>
 					<span class="text-white text-uppercase mt-3">Restaurar backup</span>
 				</a>
 			</div>
 			<div class="col">
-				<a href="<?php echo "{$url_base}/{$pagina}"; ?>/eliminar" class="box eliminar text-white d-block text-decoration-none rounded shadow d-flex justify-content-center align-items-center flex-column py-5">
+				<a href="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>&accion=eliminar" class="box eliminar text-white d-block text-decoration-none rounded shadow d-flex justify-content-center align-items-center flex-column py-5">
 					<i class="bi bi-trash"></i>
 					<span class="text-white text-uppercase mt-3">Eliminar backup</span>
 				</a>

@@ -6,7 +6,7 @@
  * @package New_Risus_Tools
  * @author Miguel92 
  * @copyright NewRisus 2021
- * @version v1.2.2 31-03-2021
+ * @version v1.2.3 16-05-2021
  * @link https://newrisus.com
 */
 
@@ -20,7 +20,7 @@ if (count($carpeta) < 2): ?>
    <div class="py-3 text-info text-center">
    	<span>Dentro del directorio "<b>backup_db</b>" no existe ninguna copia!</span>
    	<div class="my-2">
-   		<a href="<?php echo "{$url_base}/{$pagina}"; ?>" class="btn btn-sm btn-success">Regresar</a>
+   		<a href="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>" class="btn btn-sm btn-success">Regresar</a>
    	</div>
    </div>
 
@@ -42,7 +42,7 @@ else:
 	} else {
 		if(empty($_POST['deleted'])) { ?>
 			<p>Ahora tu puedes seleccionar las base de datos quieres eliminar!</p>
-			<form action="<?php echo "{$url_base}/{$pagina}"; ?>/eliminar" method="POST">
+			<form action="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>&accion=eliminar" method="POST">
 				<div class="row">
 					<?php foreach ($file_backup as $key => $value): ?>
 						<div class="col-3 mb-3">
@@ -62,7 +62,7 @@ else:
 		} else { 
 		?>
 			<p>¿Seguro que <?php echo (count($_POST['files']) == 1 ? 'desea eliminar esta copia' : 'deseas estas copias'); ?>?</p>
-			<form action="<?php echo "{$url_base}/{$pagina}"; ?>/eliminar" method="POST">
+			<form action="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>&accion=eliminar" method="POST">
 				<ul>
 					<?php foreach ($_POST['files'] as $key => $value): ?>
 						<li><?php echo $tsMysql->download(0, $_POST['files'][$key]); ?></li>

@@ -6,7 +6,7 @@
  * @package New_Risus_Tools
  * @author Miguel92 
  * @copyright NewRisus 2021
- * @version v1.2.2 31-03-2021
+ * @version v1.2.3 16-05-2021
  * @link https://newrisus.com
 */
 
@@ -36,7 +36,7 @@ else:
 	$row_cnt = mysqli_num_rows($resultado);
 
 ?>
-	<form method="POST" action="<?php echo "{$url_base}/{$pagina}"; ?>/ejecutar" autocomplete="OFF">
+	<form method="POST" action="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>&accion=ejecutar" autocomplete="OFF">
 	
 		<span id="saveAllTables" class="d-block mb-2"><input type="checkbox" class="me-2" name="base[todos]" id="todos" value="todos"><label for="todos">Guardar todas las tablas</label></span>
 		<div class="row" id="all">

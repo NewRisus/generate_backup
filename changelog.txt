@@ -1,3 +1,6 @@
+# Versión 1.2.3
+ * Url con parámetros sin .htaccess (ya que no funciona en todos los hosting)
+
 # Versión 1.2.2
  * Nueva forma de restaurar la base de datos con los archivos ".sql"
 

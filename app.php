@@ -6,7 +6,7 @@
  * @package New_Risus_Tools
  * @author Miguel92 
  * @copyright NewRisus 2021
- * @version v1.2.2 31-03-2021
+ * @version v1.2.3 16-05-2021
  * @link https://newrisus.com
 */
 
@@ -25,7 +25,7 @@ set_time_limit(300);
 
 # Creamos una ruta "url"
 $url_base = "{$_SERVER["REQUEST_SCHEME"]}://{$_SERVER["HTTP_HOST"]}" . dirname($_SERVER["PHP_SELF"]);
-$version = "v1.2.2";
+$version = "v1.2.3";
 $fecha = date('dmY');
 
 $GLOBALS['SCRIPT'] = isset($_GET['script']) ? htmlentities($_GET['script']) : '';

@@ -1,11 +1,6 @@
-$('.bdc').on('click', function(e) {
-	tipo = $(this).children().attr('id');
-	location.href = global.url + '/index.php?accion=' + tipo;
-});
-
 $("input[name=newname]").on('keyup', function() {
    $.post({
-      url: global.url + '/app.php?act=check',
+      url: global.url + '/script/exec.php?act=check',
       data: 'text=' + $(this).val(),
       cache: false,
    }).done(function(h) {

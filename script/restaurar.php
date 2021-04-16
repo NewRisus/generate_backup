@@ -6,7 +6,7 @@
  * @package New_Risus_Tools
  * @author Miguel92 
  * @copyright NewRisus 2021
- * @version v1.2.2 31-03-2021
+ * @version v1.2.3 16-05-2021
  * @link https://newrisus.com
 */
 
@@ -26,7 +26,7 @@ if(empty($usuario)):
 		<div class="py-3 text-info text-center">
 	   	<span>Dentro del directorio "<b>backup_db</b>" no existe ninguna copia!</span>
 	   	<div class="my-2">
-	   		<a href="<?php echo "{$url_base}/{$pagina}"; ?>" class="btn btn-sm btn-success">Regresar</a>
+	   		<a href="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>" class="btn btn-sm btn-success">Regresar</a>
 	   	</div>
 	   </div>
 	   
@@ -59,7 +59,7 @@ if(empty($usuario)):
 					<td>
 						<div class="d-flex justify-content-around align-items-center">
 							<a href="<?php echo "{$url_base}?download={$file_backup[$key]['descargar']}"; ?>" class="text-decoration-none text-info" title="Descargar" target="_blank"><i class="bi bi-cloud-download"></i></a>
-							<a href="<?php echo "{$url_base}/{$pagina}/restaurar?backup={$file_backup[$key]['descargar']}"; ?>" class="text-decoration-none text-success" title="Restaurar"><i class="bi bi-journal-arrow-up"></i></a>
+							<a href="<?php echo "{$url_base}/index.php?script={$pagina}&accion=restaurar&backup={$file_backup[$key]['descargar']}"; ?>" class="text-decoration-none text-success" title="Restaurar"><i class="bi bi-journal-arrow-up"></i></a>
 						</div>
 					</td>
 				</tr>
@@ -73,10 +73,10 @@ if(empty($usuario)):
 		</table>
 		<div class="py-2">
 			<div class="d-flex justify-content-center align-items-center">
-				<a href="<?php echo "{$url_base}/{$pagina}"; ?>" class="btn btn-sm btn-success">Regresar</a>
-				<a href="<?php echo "{$url_base}/{$pagina}/subir"; ?>" class="btn btn-sm btn-primary mx-3">Subir una copia</a>
-				<a href="<?php echo "{$url_base}/{$pagina}/crear"; ?>" class="btn btn-sm btn-primary mx-3">Crear backup</a>
-				<a href="<?php echo "{$url_base}/{$pagina}/eliminar"; ?>" class="btn btn-sm btn-danger">Eliminar backup</a>
+				<a href="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>" class="btn btn-sm btn-success">Regresar</a>
+				<a href="<?php echo "{$url_base}/index.php?script={$pagina}&accion=subir"; ?>" class="btn btn-sm btn-primary mx-3">Subir una copia</a>
+				<a href="<?php echo "{$url_base}/index.php?script={$pagina}&accion=crear"; ?>" class="btn btn-sm btn-primary mx-3">Crear backup</a>
+				<a href="<?php echo "{$url_base}/index.php?script={$pagina}&accion=eliminar"; ?>" class="btn btn-sm btn-danger">Eliminar backup</a>
 			</div>
 		</div>
 		<?php endif; ?>
@@ -85,7 +85,7 @@ if(empty($usuario)):
 			$file = $tsMysql->download(0, str_replace(' ', '+', $_GET['backup']));
 	?>
 		<p>La base que quieres restaurar es: <b><?php echo $file; ?></b></p>
-		<form method="POST" action="<?php echo "{$url_base}/{$pagina}"; ?>/restaurar" autocomplete="OFF">
+		<form method="POST" action="<?php echo "{$url_base}/index.php?script={$pagina}"; ?>&accion=restaurar" autocomplete="OFF">
 			<p>Para asegurar que sea correcto por favor ingresa el nombre del usuario de la base de datos.</p>
 			<div class="form-floating mb-3">
 			  	<input type="text" class="form-control" name="username" autocomplete="off" placeholder="Usuario" required>

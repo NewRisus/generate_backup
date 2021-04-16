@@ -21,16 +21,16 @@ body {
 	width: 40%;
 	margin: 20px 0;
 }
-.box-backup > i {
+.box > i {
 	font-size: 3rem;
 }
-.box-backup#crear:hover {
+.box.crear:hover {
 	background-color: var(--bs-primary);
 }
-.box-backup#restaurar:hover {
+.box.restaurar:hover {
 	background-color: var(--bs-success);
 }
-.box-backup#eliminar:hover {
+.box.eliminar:hover {
 	background-color: var(--bs-danger);
 }
 *:-webkit-autofill,
